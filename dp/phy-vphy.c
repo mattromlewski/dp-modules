@@ -1141,7 +1141,8 @@ static int xvphy_probe(struct platform_device *pdev)
 	}
 
 	/* the AXI lite clock is used for the clock rate detector */
-	vphydev->axi_lite_clk = devm_clk_get(&pdev->dev, "axi-lite");
+	// vphydev->axi_lite_clk = devm_clk_get(&pdev->dev, "axi-lite");
+	vphydev->axi_lite_clk = devm_clk_get(&pdev->dev, "vid_phy_axi4lite_aclk");
 	if (IS_ERR(vphydev->axi_lite_clk)) {
 		ret = PTR_ERR(vphydev->axi_lite_clk);
 		vphydev->axi_lite_clk = NULL;
