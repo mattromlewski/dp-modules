@@ -1083,7 +1083,7 @@ static int xvphy_probe(struct platform_device *pdev)
 	void *ptr;
 	int ret;
 
-	dev_info(&pdev->dev, "xlnx-dp-vphy: probed\n");
+	dev_info(&pdev->dev, "CUSTOM xlnx-dp-vphy: probed\n");
 	vphydev = devm_kzalloc(&pdev->dev, sizeof(*vphydev), GFP_KERNEL);
 	if (!vphydev)
 		return -ENOMEM;
@@ -1273,7 +1273,7 @@ static int xvphy_probe(struct platform_device *pdev)
 		printk("DRU reference clock frequency \n\r");
 	}
 	
-	dev_info(&pdev->dev, "dp-vphy probe successful\n");
+	dev_info(&pdev->dev, "CUSTOM dp-vphy probe successful\n");
 	vphydev_g = vphydev;
 
 	/* probe has succeeded for this instance, increment instance index */
