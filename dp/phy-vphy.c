@@ -1100,25 +1100,25 @@ static int xvphy_probe(struct platform_device *pdev)
 
 	XVphy_ConfigTable[instance].DeviceId = VPHY_DEVICE_ID_BASE + instance;
 
-	fnode = of_parse_phandle(np, "xlnx,xilinx-vfmc", 0);
-	if (!fnode) {
-		dev_err(&pdev->dev, "xilinx-vfmc not found in DT\n");
-		of_node_put(fnode);
-	} else {
-		iface_pdev = of_find_device_by_node(fnode);
-		if (!iface_pdev) {
-			of_node_put(np);
-			return -ENODEV;
-		}
-		ptr = dev_get_drvdata(&iface_pdev->dev);
-		if (!ptr) {
-			dev_info(&pdev->dev,
-				 "xilinx-vfmc device not found -EPROBE_DEFER\n");
-			of_node_put(fnode);
-			return -EPROBE_DEFER;
-		}
-		of_node_put(fnode);
-	}
+	// fnode = of_parse_phandle(np, "xlnx,xilinx-vfmc", 0);
+	// if (!fnode) {
+	// 	dev_err(&pdev->dev, "xilinx-vfmc not found in DT\n");
+	// 	of_node_put(fnode);
+	// } else {
+	// 	iface_pdev = of_find_device_by_node(fnode);
+	// 	if (!iface_pdev) {
+	// 		of_node_put(np);
+	// 		return -ENODEV;
+	// 	}
+	// 	ptr = dev_get_drvdata(&iface_pdev->dev);
+	// 	if (!ptr) {
+	// 		dev_info(&pdev->dev,
+	// 			 "xilinx-vfmc device not found -EPROBE_DEFER\n");
+	// 		of_node_put(fnode);
+	// 		return -EPROBE_DEFER;
+	// 	}
+	// 	of_node_put(fnode);
+	// }
 
 	dev_dbg(vphydev->dev,"DT parse start\n");
 	ret = vphy_parse_of(vphydev, &XVphy_ConfigTable[instance]);
